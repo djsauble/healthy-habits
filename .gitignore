@@ -1,4 +1,4 @@
 .*
-js/config.js
+src/config.json
 node_modules/
 dist/
