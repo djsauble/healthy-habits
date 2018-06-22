@@ -1,4 +1,6 @@
-/*global WildRydes _config AmazonCognitoIdentity AWSCognito*/
+import Config from "./config.json";
+import jQuery from "jquery";
+var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 
 var WildRydes = window.WildRydes || {};
 
@@ -6,15 +8,15 @@ var WildRydes = window.WildRydes || {};
     var signinUrl = '/signin.html';
 
     var poolData = {
-        UserPoolId: _config.cognito.userPoolId,
-        ClientId: _config.cognito.userPoolClientId
+        UserPoolId: Config.cognito.userPoolId,
+        ClientId: Config.cognito.userPoolClientId
     };
 
     var userPool;
 
-    if (!(_config.cognito.userPoolId &&
-          _config.cognito.userPoolClientId &&
-          _config.cognito.region)) {
+    if (!(Config.cognito.userPoolId &&
+          Config.cognito.userPoolClientId &&
+          Config.cognito.region)) {
         console.log("There is no user pool configured in js/config.js");
         return;
     }
@@ -22,7 +24,7 @@ var WildRydes = window.WildRydes || {};
     userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
     if (typeof AWSCognito !== 'undefined') {
-        AWSCognito.config.region = _config.cognito.region;
+        AWSCognito.config.region = Config.cognito.region;
     }
 
     WildRydes.signOut = function signOut() {

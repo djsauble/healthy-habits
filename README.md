@@ -21,6 +21,10 @@ window._config = {
 
 ## Development
 
-To sync content to S3, run the following command:
+To build and sync content to S3, run the following commands:
 
-`aws s3 sync . s3://healthy-habits-daniel-sauble/ --delete --exclude ".*"`
+```
+npm run build
+cd dist/
+aws s3 sync . s3://healthy-habits-daniel-sauble/ --delete
+```
