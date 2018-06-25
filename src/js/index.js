@@ -1,4 +1,5 @@
 import Config from "./config.json";
+import Vue from "vue";
 import jQuery from "jquery";
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 

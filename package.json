@@ -7,14 +7,16 @@
   },
   "dependencies": {
     "amazon-cognito-identity-js": "2.0.11",
-    "jquery": "3.3.1"
+    "html-webpack-plugin": "3.2.0",
+    "jquery": "3.3.1",
+    "vue": "2.5.16"
   },
   "devDependencies": {
     "webpack": "4.12.0",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "3.0.8"
   },
   "scripts": {
     "build": "webpack",
-    "deploy": "npm run build && rsync -c src/*.html dist/ && aws s3 sync dist/ s3://healthy-habits-daniel-sauble/ --delete"
+    "deploy": "npm run build && aws s3 sync dist/ s3://healthy-habits-daniel-sauble/ --delete"
   }
 }
